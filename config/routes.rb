@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   patch "/coins/:id" => "coins#update"
   delete "/coins/:id" => "coins#destroy"
 
+  get "/transactions" => "transactions#index"
+  post "/transactions" => "transactions#create"
+  get "/transactions/:id" => "transactions#show"
+
 end
