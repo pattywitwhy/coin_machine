@@ -18,6 +18,7 @@ class CoinsController < ApplicationController
 
   def show
     @coin = Coin.find(params[:id])
+    @coin.calculate_total
     render 'show.json.jbuilder'
   end
 
