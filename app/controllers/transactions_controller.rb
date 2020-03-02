@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(
-                                    time: params[:time],
+                                    time: DateTime.now.to_s(:time),
                                     coin_id: params[:coin_id]
                                   )
     if @transaction.save
