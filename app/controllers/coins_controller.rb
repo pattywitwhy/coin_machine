@@ -1,4 +1,9 @@
 class CoinsController < ApplicationController
+  def index
+    @coins = Coin.all
+    render 'index.json.jbuilder'
+  end
+
   def create
     @coin = Coin.new(
                     value: params[:value],
@@ -9,6 +14,11 @@ class CoinsController < ApplicationController
     else
       render json: {errors: @coin.errors.full_messages}, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @coin = Coin.find(params[:id])
+    render 'show.json.jbuilder'
   end
 
   def update
