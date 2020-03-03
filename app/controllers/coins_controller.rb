@@ -7,7 +7,8 @@ class CoinsController < ApplicationController
   def create
     @coin = Coin.new(
                     value: params[:value],
-                    name: params[:name]
+                    name: params[:name],
+                    transaction_id: params[:transaction_id]
                     )
     if @coin.save
       render 'show.json.jbuilder'
@@ -27,6 +28,7 @@ class CoinsController < ApplicationController
 
     @coin.value = params[:value] || @coin.value
     @coin.name = params[:name] || @coin.name
+    @coin.transaction_id = params[:transaction_id] || @coin.transaction_id
 
     if @coin.save
       render 'show.json.jbuilder'

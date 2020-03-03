@@ -8,7 +8,8 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(
                                     time: DateTime.now.to_s(:time),
-                                    coin_id: params[:coin_id]
+                                    # coin_id: params[:coin_id],
+                                    user_id: params[:user_id]
                                   )
     if @transaction.save
       render 'show.json.jbuilder'
