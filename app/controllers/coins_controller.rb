@@ -30,7 +30,7 @@ class CoinsController < ApplicationController
     @coin.name = params[:name] || @coin.name
     @coin.transaction_id = params[:transaction_id] || @coin.transaction_id
 
-    if @coin.save
+    if @coin.save!
       render 'show.json.jbuilder'
     else
       render json: {errors: @coin.errors.full_messages}, status: :unprocessable_entity

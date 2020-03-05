@@ -11,6 +11,8 @@ class TransactionsController < ApplicationController
                                     user_id: params[:user_id]
                                   )
     if @transaction.save
+      # @transaction.deposit
+      Coin.create(value: params[:value], name: params[:name], transaction_id: @transaction.id)
       render 'show.json.jbuilder'
     else
       render json: {errors: @transactions.errors.full_messages}, status: :unprocessable_entity
@@ -20,6 +22,17 @@ class TransactionsController < ApplicationController
   def show
     @transaction = Transaction.find(params[:id])
     render 'show.json.jbuilder'
+  end
+
+  def update
+    @transaction = Transaction.find(params[:id])
+    @transaction.withdraw
+
+    if @transaction.save
+      render 'show.json.jbuilder'
+    else
+      render json: {errors: @transactions.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
 end
