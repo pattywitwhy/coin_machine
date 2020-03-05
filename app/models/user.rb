@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :transactions
-  # has_many :coins, through: :transactions
+  has_many :withdrawls through: :transactions
+  has_many :coins, through: :transactions
 
 
   before_create do |user|

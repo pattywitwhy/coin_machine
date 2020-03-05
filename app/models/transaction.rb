@@ -1,13 +1,15 @@
 class Transaction < ApplicationRecord
-  belongs_to :user
   has_many :coins
+  has_many :withdrawls
+  belongs_to :user
 
 
   def deposit
-    @coin = Coin.create(value:params[:value], name:params[:name], transaction_id:transaction.id)
+    # @coin = Coin.create(value:params[:value], name:params[:name], transaction_id:transaction.id)
+    Coin.create
   end
 
-  def withdrawal
-    # self.coin.update(value: params[:value])
-  end
+  # def withdrawal
+  #   @coin.destroy
+  # end
 end

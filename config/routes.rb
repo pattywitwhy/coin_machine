@@ -13,4 +13,8 @@ Rails.application.routes.draw do
 
   post "/users" => "users#create"
 
+  get "/withdrawals" => "withdrawals#index"
+  post "/withdrawals" => "withdrawals#create"
+  get "/withdrawals/:id" => "withdrawals#show"
+
 end

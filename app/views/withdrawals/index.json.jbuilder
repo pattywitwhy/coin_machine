@@ -1,0 +1,1 @@
+json.array! @withdrawals, partial: "withdrawal", as: :withdrawal
