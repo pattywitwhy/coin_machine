@@ -11,7 +11,7 @@ class WithdrawalsController < ApplicationController
                                 )
 
     if @withdrawal.save
-        transaction.id.coin.destroy
+      # @withdrawal.update()
       render 'show.json.jbuilder'
     else
       render json: {errors: @withdrawal.errors.full_messages}, status: :unprocessable_entity

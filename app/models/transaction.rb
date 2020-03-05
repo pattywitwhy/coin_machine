@@ -1,7 +1,7 @@
 class Transaction < ApplicationRecord
   has_many :coins
-  has_many :withdrawls
-  belongs_to :user
+  has_many :withdrawals
+  # belongs_to :user
 
 
   def deposit
@@ -9,7 +9,8 @@ class Transaction < ApplicationRecord
     Coin.create
   end
 
-  # def withdrawal
-  #   @coin.destroy
-  # end
+  def withdrawal
+    @withdrawal = Withdrawal.new(coin_id: self.coin_id, transaction_id: self.transaction.id)
+    Coin.destroy
+  end
 end

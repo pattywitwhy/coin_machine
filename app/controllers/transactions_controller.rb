@@ -27,6 +27,7 @@ class TransactionsController < ApplicationController
   def update
     @transaction = Transaction.find(params[:id])
     @transaction.deposit
+    @transaction.destroy
 
     if @transaction.save
       render 'show.json.jbuilder'
