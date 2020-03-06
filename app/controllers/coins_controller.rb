@@ -1,6 +1,7 @@
 class CoinsController < ApplicationController
   def index
     @coins = Coin.all
+    # render text: "working"
     render 'index.json.jbuilder'
   end
 

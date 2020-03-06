@@ -4,8 +4,4 @@ class Withdrawal < ApplicationRecord
   # belongs_to :user
   has_many :coins
 
-
-  # def remove_coin
-  #   self.
-  # end
 end

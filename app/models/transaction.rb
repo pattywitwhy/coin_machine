@@ -13,4 +13,11 @@ class Transaction < ApplicationRecord
     @withdrawal = Withdrawal.new(coin_id: self.coin_id, transaction_id: self.transaction.id)
     Coin.destroy
   end
+
+  def check_balance
+    if Coin.calculate_total < 4
+      puts "Balance is low"
+      #create an email for an admin
+    end
+  end
 end
